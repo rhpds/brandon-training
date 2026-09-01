@@ -10,3 +10,13 @@ chmod 666 /tmp/progress.log
 
 #dnf install -y nc
 
+# Enable cockpit functionality in showroom.
+echo "[WebService]" > /etc/cockpit/cockpit.conf
+echo "Origins = https://cockpit-${GUID}.${DOMAIN}" >> /etc/cockpit/cockpit.conf
+echo "AllowUnencrypted = true" >> /etc/cockpit/cockpit.conf
+systemctl enable --now cockpit.socket
+
+# Create rhel user and set password
+useradd rhel
+usermod -aG wheel rhel
+#echo redhat | passwd --stdin rhel
