@@ -7,4 +7,4 @@ egress:
 ingress:
   - ports:
       - protocol: TCP
-        port: 9100
+        port: ‎9090
