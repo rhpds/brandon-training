@@ -18,4 +18,7 @@ tabs:
     url: /wetty_rhel/ssh/root
   - name: "RHEL Web Console"
     url: https://cockpit-${guid}.${domain}/
+  - name: "Asciidoc Doc"
+    url: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+    external: true
     
