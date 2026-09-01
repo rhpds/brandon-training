@@ -10,16 +10,20 @@ chmod 666 /tmp/progress.log
 
 #dnf install -y nc
 
+# --- Cockpit (RHEL web console) ---
 # Install cockpit
 dnf install -y cockpit
 
-# Enable cockpit functionality in showroom.
+# Open the guest firewall for 9090 (Service target)
+firewall-cmd --add-service=cockpit --permanent
+firewall-cmd --reload
+
+# Enable cockpit functionality in showroom (Edge route + iframe)
 echo "[WebService]" > /etc/cockpit/cockpit.conf
 echo "Origins = https://cockpit-${GUID}.${DOMAIN}" >> /etc/cockpit/cockpit.conf
 echo "AllowUnencrypted = true" >> /etc/cockpit/cockpit.conf
-systemctl enable --now cockpit.socket
+echo "ProtocolHeader = X-Forwarded-Proto" >> /etc/cockpit/cockpit.conf
 
-# Create rhel user and set password
-useradd rhel
-usermod -aG wheel rhel
-#echo redhat | passwd --stdin rhel
+
+# Enable the socket last, with config in place
+systemctl enable --now cockpit.socket
