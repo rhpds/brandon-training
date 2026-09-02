@@ -34,7 +34,7 @@ dnf install -y httpd
 
 # Open the guest firewall for 80
 firewall-cmd --add-service=http --permanent
-firewall-cmnd --reload
+firewall-cmd --reload
 
 # Enable Apache to work with Showroom's Edge route
 # Create default index.html
