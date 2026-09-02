@@ -37,4 +37,4 @@ virtualmachines:
         service: apache
         targetPort: 80
         tls: true
-        tls_terminiation: Edge
+        tls_termination: Edge
