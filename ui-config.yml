@@ -21,4 +21,6 @@ tabs:
   - name: "Asciidoc Doc"
     url: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
     external: true
+  - name: "Apache"
+    url: https://apache-${guid}.${domain}/
     
