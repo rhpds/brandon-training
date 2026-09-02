@@ -36,5 +36,5 @@ virtualmachines:
         host: apache
         service: apache
         targetPort: 80
-        tls: trye
+        tls: true
         tls_terminiation: Edge
