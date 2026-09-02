@@ -19,6 +19,12 @@ virtualmachines:
             protocol: TCP
             targetPort: 9090
             name: cockpit
+      - name: apache
+        ports:
+          port: 80
+          protocol: TCP
+          targetPort: 80
+          name: apache
     routes:
       - name: cockpit
         host: cockpit
@@ -26,3 +32,9 @@ virtualmachines:
         targetPort: 9090
         tls: true
         tls_termination: Edge
+      - name: apache
+        host: apache
+        service: apache
+        targetPort: 80
+        tls: trye
+        tls_terminiation: Edge
