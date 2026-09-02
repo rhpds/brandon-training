@@ -21,10 +21,10 @@ virtualmachines:
             name: cockpit
       - name: apache
         ports:
-          port: 80
-          protocol: TCP
-          targetPort: 80
-          name: apache
+          - port: 80
+            protocol: TCP
+            targetPort: 80
+            name: apache
     routes:
       - name: cockpit
         host: cockpit
